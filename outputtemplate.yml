@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Create a random NPC
+Resources:
+  npc_generator:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: npc.lambda_handler
+      Runtime: python3.6
+      CodeUri: s3://ds-lambda-deployment-artifacts/d39d479c958a14177fb69fdd63f978a3
+      Events:
+        MyTimeApi:
+          Type: Api
+          Properties:
+            Path: /NPC
+            Method: GET
