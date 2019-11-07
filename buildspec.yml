@@ -5,7 +5,7 @@ phases:
         python: 3.7
   build:
     commands:
-      - export BUCKET=ds-lambda-deployment-artifacts
+      - export BUCKET=codepipeline-us-west-1-894798349169
       - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml --debug
 artifacts:
   type: zip
